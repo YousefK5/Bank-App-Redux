@@ -30,6 +30,24 @@ const initState = {
 };
 
 const reducer = (state = initState, action) => {
+    if(action.type=="addCustomer") {
+        const length = state.accounts.length;
+        const lastId = state.accounts[length-1].id;
+        const newCustomer = action.payload;
+        const newArr = [...state.accounts ,
+             {
+                id:lastId+1 ,
+                customerName: newCustomer.customerName,
+                accountNumber:newCustomer.accNumber,
+                accountType:newCustomer.accType,
+                }];
+        return {...state , accounts: newArr}
+    }
+
+    if(action.type=="deleteCustomer") {
+        const newArr = state.accounts.filter(e=> e.id!= action.payload);
+        return {...state , accounts: [...newArr]}
+    }
   return state;
 };
 

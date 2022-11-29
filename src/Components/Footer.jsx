@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <footer className="bg-dark text-center text-light fixed-bottom ">
+        <footer className="bg-dark text-center text-light">
           <div className="text-center p-3">© 2022 Copyright</div>
         </footer>
       </>
